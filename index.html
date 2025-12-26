@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pendaftaran Mahasiswa Baru</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header>
+    <h1>Pendaftaran Mahasiswa Baru</h1>
+    <p>
+      Selamat datang di formulir pendaftaran mahasiswa baru. Silakan isi data Anda dengan lengkap dan benar.
+    </p>
+  </header>
+
+  <main>
+    <section class="layout" aria-label="Form dan hasil pendaftaran">
+      <article class="card" aria-label="Form pendaftaran">
+        <div class="card-head">
+          <strong>Form Pendaftaran</strong>
+          <span class="badge" id="formStatus">Belum dikirim</span>
+        </div>
+
+        <div class="card-body">
+          <form id="registrationForm" novalidate>
+            <div class="field span-2">
+              <label for="fullName">Nama Lengkap</label>
+              <input id="fullName" name="fullName" type="text" placeholder="Contoh: Siti Nurhaliza" autocomplete="name" />
+              <div class="error" id="errFullName" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="nim">NIM</label>
+              <input id="nim" name="nim" type="text" inputmode="numeric" placeholder="Contoh: 2025123456" autocomplete="off" />
+              <div class="hint">Ketentuan: angka saja, panjang 10–12 digit.</div>
+              <div class="error" id="errNim" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="nama@email.com" autocomplete="email" />
+              <div class="error" id="errEmail" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="program">Program Studi</label>
+              <select id="program" name="program">
+                <option value="">Pilih program studi</option>
+                <option value="Informatika">Informatika</option>
+                <option value="Sistem Informasi">Sistem Informasi</option>
+                <option value="Manajemen">Manajemen</option>
+                <option value="Akuntansi">Akuntansi</option>
+                <option value="Teknik Industri">Teknik Industri</option>
+              </select>
+              <div class="error" id="errProgram" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="gender">Jenis Kelamin</label>
+              <select id="gender" name="gender">
+                <option value="">Pilih</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+                <option value="Lainnya">Lainnya</option>
+              </select>
+              <div class="error" id="errGender" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="birthDate">Tanggal Lahir (tambahan)</label>
+              <input id="birthDate" name="birthDate" type="date" />
+              <div class="hint">Minimal usia 15 tahun.</div>
+              <div class="error" id="errBirthDate" aria-live="polite"></div>
+            </div>
+
+            <div class="field">
+              <label for="phone">Nomor Telepon</label>
+              <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="08xxxxxxxxxx" autocomplete="tel" />
+              <div class="hint">Format Indonesia: diawali 08, total 10–13 digit.</div>
+              <div class="error" id="errPhone" aria-live="polite"></div>
+            </div>
+
+            <div class="field span-2">
+              <label for="address">Alamat</label>
+              <textarea id="address" name="address" placeholder="Tulis alamat lengkap..."></textarea>
+              <div class="error" id="errAddress" aria-live="polite"></div>
+            </div>
+
+            <div class="actions span-2">
+              <button class="btn-danger" type="button" id="btnReset">Reset & Hapus Data</button>
+              <button class="btn-primary" type="submit">Kirim Pendaftaran</button>
+            </div>
+          </form>
+        </div>
+      </article>
+
+      <aside class="card" aria-label="Ringkasan pendaftaran">
+        <div class="card-head">
+          <strong>Ringkasan (Kartu Hasil)</strong>
+          <span class="badge" id="storageStatus">localStorage: kosong</span>
+        </div>
+        <div class="card-body">
+          <div id="resultArea">
+            <p class="result-empty">
+              Belum ada data pendaftaran. Setelah submit berhasil, ringkasan akan muncul di sini.
+            </p>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer>
+    Dibuat dengan HTML5 semantik, CSS Grid/Flex, validasi JavaScript per-field, dan penyimpanan localStorage.
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
